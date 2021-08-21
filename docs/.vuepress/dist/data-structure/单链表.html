@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>数据结构 - 单链表 | 冰洛博客</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="Don't repeat yourself">
+    
+    <link rel="preload" href="/assets/css/0.styles.7195a2eb.css" as="style"><link rel="preload" href="/assets/js/app.66e3039c.js" as="script"><link rel="preload" href="/assets/js/3.334ae027.js" as="script"><link rel="preload" href="/assets/js/1.eb54ca9b.js" as="script"><link rel="preload" href="/assets/js/14.d9a65f5a.js" as="script"><link rel="prefetch" href="/assets/js/10.1544eb26.js"><link rel="prefetch" href="/assets/js/11.5c339a2b.js"><link rel="prefetch" href="/assets/js/12.3a4fea21.js"><link rel="prefetch" href="/assets/js/13.33ffff4f.js"><link rel="prefetch" href="/assets/js/15.09404ead.js"><link rel="prefetch" href="/assets/js/16.2444f8db.js"><link rel="prefetch" href="/assets/js/17.3eb34f65.js"><link rel="prefetch" href="/assets/js/18.3bd1bf7b.js"><link rel="prefetch" href="/assets/js/19.276ac6a1.js"><link rel="prefetch" href="/assets/js/20.eab66db8.js"><link rel="prefetch" href="/assets/js/21.da5ef9f1.js"><link rel="prefetch" href="/assets/js/22.be427e0e.js"><link rel="prefetch" href="/assets/js/23.5646e756.js"><link rel="prefetch" href="/assets/js/24.69aacbf9.js"><link rel="prefetch" href="/assets/js/25.87a5c7b1.js"><link rel="prefetch" href="/assets/js/26.12479497.js"><link rel="prefetch" href="/assets/js/4.8781a41f.js"><link rel="prefetch" href="/assets/js/5.120655fd.js"><link rel="prefetch" href="/assets/js/6.86ef0502.js"><link rel="prefetch" href="/assets/js/7.3b53d3ef.js"><link rel="prefetch" href="/assets/js/8.ff737a6b.js"><link rel="prefetch" href="/assets/js/9.1855391b.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.7195a2eb.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-1156296a><div data-v-1156296a><div id="loader-wrapper" class="loading-wrapper" data-v-d48f4d20 data-v-1156296a data-v-1156296a><div class="loader-main" data-v-d48f4d20><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-4e82dffc data-v-1156296a data-v-1156296a><h3 class="title" data-v-4e82dffc data-v-4e82dffc>冰洛博客</h3> <p class="description" data-v-4e82dffc data-v-4e82dffc>Don't repeat yourself</p> <label id="box" class="inputBox" data-v-4e82dffc data-v-4e82dffc><input type="password" value="" data-v-4e82dffc> <span data-v-4e82dffc>Konck! Knock!</span> <button data-v-4e82dffc>OK</button></label> <div class="footer" data-v-4e82dffc data-v-4e82dffc><span data-v-4e82dffc><i class="iconfont reco-theme" data-v-4e82dffc></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-4e82dffc>vuePress-theme-reco</a></span> <span data-v-4e82dffc><i class="iconfont reco-copyright" data-v-4e82dffc></i> <a data-v-4e82dffc><span data-v-4e82dffc>icelo</span>
+            
+          <!---->
+          2021
+        </a></span></div></div> <div class="hide" data-v-1156296a><header class="navbar" data-v-1156296a><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/avatar.png" alt="冰洛博客" class="logo"> <span class="site-name">冰洛博客</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="undefined"></i>
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/计算机网络/" class="nav-link"><i class="undefined"></i>
+  计算机网络
+</a></li><li class="dropdown-item"><!----> <a href="/categories/数据结构/" class="nav-link"><i class="undefined"></i>
+  数据结构
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Java/" class="nav-link"><i class="undefined"></i>
+  Java
+</a></li><li class="dropdown-item"><!----> <a href="/categories/操作系统/" class="nav-link"><i class="undefined"></i>
+  操作系统
+</a></li><li class="dropdown-item"><!----> <a href="/categories/教程分享/" class="nav-link"><i class="undefined"></i>
+  教程分享
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div><div class="nav-item"><a href="/about/" class="nav-link"><i class="iconfont reco-api"></i>
+  About
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      Tools
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>系统镜像</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://msdn.itellyou.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  Windows
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://www.centos.org/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  Centos
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://ubuntu.com/download" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  Ubuntu
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>云服务</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.aliyun.com//" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  阿里云
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://cloud.tencent.com/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  腾讯云
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://www.huaweicloud.com/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  华为云
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://www.qiniu.com/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  七牛云
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>在线工具</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.gaoding.com/koutu/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  在线抠图
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://www.screentogif.com/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  GIF制作
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="http://bigjpg.com/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  图片放大
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://tinypng.com/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  图片压缩
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://www.canva.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  修改图片
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div><div class="nav-item"><a href="https://icelo.cn" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-other"></i>
+  Blog
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-1156296a></div> <aside class="sidebar" data-v-1156296a><div class="personal-info-wrapper" data-v-828910c6 data-v-1156296a><img src="/avatar.png" alt="author-avatar" class="personal-img" data-v-828910c6> <h3 class="name" data-v-828910c6>
+    icelo
+  </h3> <div class="num" data-v-828910c6><div data-v-828910c6><h3 data-v-828910c6>15</h3> <h6 data-v-828910c6>Articles</h6></div> <div data-v-828910c6><h3 data-v-828910c6>11</h3> <h6 data-v-828910c6>Tags</h6></div></div> <ul class="social-links" data-v-828910c6><li class="social-item" data-v-828910c6><i class="iconfont reco-github" style="color:#e15b64;" data-v-828910c6></i></li></ul> <hr data-v-828910c6></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="undefined"></i>
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/计算机网络/" class="nav-link"><i class="undefined"></i>
+  计算机网络
+</a></li><li class="dropdown-item"><!----> <a href="/categories/数据结构/" class="nav-link"><i class="undefined"></i>
+  数据结构
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Java/" class="nav-link"><i class="undefined"></i>
+  Java
+</a></li><li class="dropdown-item"><!----> <a href="/categories/操作系统/" class="nav-link"><i class="undefined"></i>
+  操作系统
+</a></li><li class="dropdown-item"><!----> <a href="/categories/教程分享/" class="nav-link"><i class="undefined"></i>
+  教程分享
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div><div class="nav-item"><a href="/about/" class="nav-link"><i class="iconfont reco-api"></i>
+  About
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      Tools
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>系统镜像</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://msdn.itellyou.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  Windows
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://www.centos.org/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  Centos
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://ubuntu.com/download" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  Ubuntu
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>云服务</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.aliyun.com//" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  阿里云
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://cloud.tencent.com/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  腾讯云
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://www.huaweicloud.com/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  华为云
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://www.qiniu.com/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  七牛云
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>在线工具</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.gaoding.com/koutu/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  在线抠图
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://www.screentogif.com/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  GIF制作
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="http://bigjpg.com/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  图片放大
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://tinypng.com/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  图片压缩
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://www.canva.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  修改图片
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div><div class="nav-item"><a href="https://icelo.cn" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-other"></i>
+  Blog
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav> <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Data Structure</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/data-structure/绪论.html" class="sidebar-link">数据结构 - 绪论</a></li><li><a href="/data-structure/算法.html" class="sidebar-link">数据结构 - 算法</a></li><li><a href="/data-structure/线性表.html" class="sidebar-link">数据结构 - 线性表</a></li><li><a href="/data-structure/顺序表.html" class="sidebar-link">数据结构 - 顺序表</a></li><li><a href="/data-structure/单链表.html" aria-current="page" class="active sidebar-link">数据结构 - 单链表</a></li><li><a href="/data-structure/双链表.html" class="sidebar-link">数据结构 - 双链表</a></li><li><a href="/data-structure/循环链表.html" class="sidebar-link">数据结构 - 循环链表</a></li><li><a href="/data-structure/静态链表.html" class="sidebar-link">数据结构 - 静态链表</a></li><li><a href="/data-structure/栈.html" class="sidebar-link">数据结构 - 栈</a></li><li><a href="/data-structure/队列.html" class="sidebar-link">数据结构 - 队列</a></li></ul></section></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-4e82dffc data-v-1156296a><h3 class="title" data-v-4e82dffc data-v-4e82dffc>数据结构 - 单链表</h3> <!----> <label id="box" class="inputBox" data-v-4e82dffc data-v-4e82dffc><input type="password" value="" data-v-4e82dffc> <span data-v-4e82dffc>Konck! Knock!</span> <button data-v-4e82dffc>OK</button></label> <div class="footer" data-v-4e82dffc data-v-4e82dffc><span data-v-4e82dffc><i class="iconfont reco-theme" data-v-4e82dffc></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-4e82dffc>vuePress-theme-reco</a></span> <span data-v-4e82dffc><i class="iconfont reco-copyright" data-v-4e82dffc></i> <a data-v-4e82dffc><span data-v-4e82dffc>icelo</span>
+            
+          <!---->
+          2021
+        </a></span></div></div> <div data-v-1156296a><main class="page"><section><div class="page-title"><h1 class="title">数据结构 - 单链表</h1> <div data-v-1ff7123e><i class="iconfont reco-account" data-v-1ff7123e><span data-v-1ff7123e>icelo</span></i> <i class="iconfont reco-date" data-v-1ff7123e><span data-v-1ff7123e>12/26/2020</span></i> <i class="iconfont reco-eye" data-v-1ff7123e><span id="/data-structure/单链表.html" data-flag-title="Your Article Title" class="leancloud-visitors" data-v-1ff7123e><a class="leancloud-visitors-count" style="font-size:.9rem;font-weight:normal;color:#999;"></a></span></i> <i class="tags iconfont reco-tag" data-v-1ff7123e><span class="tag-item" data-v-1ff7123e>数据结构</span><span class="tag-item" data-v-1ff7123e>C/C++</span></i></div></div> <div class="theme-reco-content content__default"><h2 id="单链表定义">单链表定义</h2> <p><img src="https://image.icelo.cn/QQ%E6%88%AA%E5%9B%BE20210205113911.png#mirages-width=1221&amp;mirages-height=611&amp;mirages-cdn-type=1" alt="单链表">
+danliang</p> <h3 id="定义单链表">定义单链表</h3> <div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token keyword">struct</span> <span class="token class-name">LNode</span><span class="token punctuation">{</span>  <span class="token comment">// 节点</span>
+    ElemType data<span class="token punctuation">;</span>   	<span class="token comment">// 每个节点存放一个数据元素</span>
+    <span class="token keyword">struct</span> <span class="token class-name">LNode</span> <span class="token operator">*</span>next<span class="token punctuation">;</span>	<span class="token comment">// 指针指向下一个节点 指针域</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * 增加一个新的节点：在内存中申请一个节点所需要的空间，并用指针p指向这个节点
+**/</span>
+<span class="token keyword">struct</span> <span class="token class-name">LNode</span> <span class="token operator">*</span> p <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">struct</span> <span class="token class-name">LNode</span> <span class="token operator">*</span><span class="token punctuation">)</span> <span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">struct</span> <span class="token class-name">LNode</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+</code></pre></div><p>C语言：
+<code>typedef</code>关键字 -- 数据类型重命名
+<code>typedef &lt;数据类型&gt; &lt;别名&gt;</code>
+如：<code>typedef int zhengshu</code></p> <div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token keyword">struct</span> <span class="token class-name">LNode</span> <span class="token operator">*</span> p <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">struct</span> <span class="token class-name">LNode</span> <span class="token operator">*</span><span class="token punctuation">)</span> <span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">struct</span> <span class="token class-name">LNode</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//可以写为如下：</span>
+
+<span class="token keyword">typedef</span> <span class="token keyword">struct</span> <span class="token class-name">LNode</span> LNode
+LNode <span class="token operator">*</span> p <span class="token operator">=</span><span class="token punctuation">(</span>LNode <span class="token operator">*</span><span class="token punctuation">)</span> <span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>LNode<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>在《数据结构》中定义的单链表代码如下：</p> <div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token keyword">typedef</span> <span class="token keyword">struct</span> <span class="token class-name">LNode</span><span class="token punctuation">{</span>
+    ELemType data<span class="token punctuation">;</span>   	<span class="token comment">// 每一个节点存放一个数据元素</span>
+    <span class="token keyword">struct</span> <span class="token class-name">LNode</span> <span class="token operator">*</span>next<span class="token punctuation">;</span> <span class="token comment">// 每个节点存放一个数据元素</span>
+<span class="token punctuation">}</span>LNode<span class="token punctuation">,</span> <span class="token operator">*</span>LinkList<span class="token punctuation">;</span>
+
+<span class="token comment">// 以上代码实际上时以下代码的简化</span>
+
+<span class="token keyword">struct</span> <span class="token class-name">LNode</span><span class="token punctuation">{</span>
+    ElemType data<span class="token punctuation">;</span>  	<span class="token comment">// 每个节点存放一个数据元素</span>
+    <span class="token keyword">struct</span> <span class="token operator">*</span> next 		<span class="token comment">// 指针指向下一个节点</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">typedef</span> <span class="token keyword">struct</span> <span class="token class-name">LNode</span> LNode<span class="token punctuation">;</span>
+<span class="token keyword">typedef</span> <span class="token keyword">struct</span> <span class="token operator">*</span>LinkList<span class="token punctuation">;</span>
+
+<span class="token comment">// 要表示一个单链表的时，只需要声明一个头指针L，指向单链表的第一个节点</span>
+<span class="token comment">// LNode * L;  声明一个指向单链表第一个结点指针</span>
+<span class="token comment">// 或：LinkList L;  声明一个指向单链表第一个节点的指针</span>
+</code></pre></div><h4 id="初始化单链表">初始化单链表：</h4> <div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token comment">// 不带头节点的单链表</span>
+<span class="token keyword">typedef</span> <span class="token keyword">struct</span> <span class="token class-name">LNode</span><span class="token punctuation">{</span>
+    ElemType data<span class="token punctuation">;</span>
+  <span class="token keyword">struct</span> <span class="token class-name">LNode</span> <span class="token operator">*</span>next<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>LNode<span class="token punctuation">,</span><span class="token operator">*</span>LinkList<span class="token punctuation">;</span>
+
+<span class="token comment">// 初始化一个空的单链表</span>
+<span class="token keyword">bool</span> <span class="token function">InitList</span><span class="token punctuation">(</span>LinkList <span class="token operator">&amp;</span>L<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    L <span class="token operator">=</span><span class="token constant">NULL</span><span class="token punctuation">;</span>  <span class="token comment">// 空表，暂时没有节点， 防止有脏数据</span>
+    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    LinkList L<span class="token punctuation">;</span> <span class="token comment">// 声明一个单链表的指针</span>
+    <span class="token comment">// 初始化一个单链表</span>
+    <span class="token function">InitList</span><span class="token punctuation">(</span>L<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">//...后续代码</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language-cpp extra-class"><pre class="language-cpp"><code>   <span class="token comment">// 带头节点的单链表</span>
+
+  <span class="token keyword">typedef</span> <span class="token keyword">struct</span> <span class="token class-name">LNode</span><span class="token punctuation">{</span>
+      ELemType data<span class="token punctuation">;</span>
+      <span class="token keyword">struct</span> <span class="token class-name">LNode</span> <span class="token operator">*</span> next<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>LNode<span class="token punctuation">,</span><span class="token operator">*</span>LinkList<span class="token punctuation">;</span>
+  
+  <span class="token comment">// 初始化一个单链表（带头节点）</span>
+  <span class="token keyword">bool</span> <span class="token function">InitList</span><span class="token punctuation">(</span>LinkList <span class="token operator">&amp;</span>L<span class="token punctuation">)</span><span class="token punctuation">{</span>
+      L <span class="token operator">=</span> <span class="token punctuation">(</span>LNode<span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>LNode<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 给头节点分配一块内存</span>
+      <span class="token keyword">if</span><span class="token punctuation">(</span>L<span class="token operator">==</span><span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token comment">// 内存不足，分配失败</span>
+          <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+      L<span class="token operator">-&gt;</span><span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span> <span class="token comment">// 在头节点之后暂时还没有节点</span>
+      <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  
+  <span class="token keyword">void</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+      
+      LinkList L<span class="token punctuation">;</span> <span class="token comment">// 声明一个单链表的指针</span>
+      <span class="token function">InitList</span><span class="token punctuation">(</span>L<span class="token punctuation">)</span> <span class="token comment">// 初始化单链表</span>
+  <span class="token punctuation">}</span>
+</code></pre></div><h2 id="单链表的插入">单链表的插入</h2> <h3 id="按位序插入-带头节点">按位序插入（带头节点）</h3> <p><code>ListInsert(&amp;L,i,e)</code>：插入操作。在表中的第i个位置插上指定元素e。</p> <blockquote><p>找到第i - 1 个节点，将新节点插入其后</p></blockquote> <div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdlib.h&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;string.h&gt;</span></span>
+<span class="token keyword">typedef</span> <span class="token keyword">struct</span> <span class="token class-name">LNode</span> <span class="token punctuation">{</span>
+	<span class="token keyword">int</span> data<span class="token punctuation">;</span>
+	<span class="token keyword">struct</span> <span class="token class-name">LNode</span><span class="token operator">*</span> next<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>LNode<span class="token punctuation">,</span><span class="token operator">*</span>LinkList<span class="token punctuation">;</span>
+
+<span class="token comment">// 在第i个位置插入元素e（带头节点）</span>
+<span class="token keyword">bool</span> <span class="token function">ListInsert</span><span class="token punctuation">(</span>LinkList <span class="token operator">&amp;</span>L<span class="token punctuation">,</span> <span class="token keyword">int</span> i<span class="token punctuation">,</span> <span class="token keyword">int</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span>i<span class="token operator">&lt;</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	LNode <span class="token operator">*</span>p<span class="token punctuation">;</span> <span class="token comment">// 指针p指向当前扫面到的节点</span>
+	<span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment">// 当前p指向的是第几个节点</span>
+	p <span class="token operator">=</span> L<span class="token punctuation">;</span> <span class="token comment">// L指向头节点，头节点是第0个节点（不包含数据）</span>
+	<span class="token keyword">while</span> <span class="token punctuation">(</span>p<span class="token operator">!=</span><span class="token constant">NULL</span><span class="token operator">&amp;&amp;</span>j<span class="token operator">&lt;</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 循环找到第i-1个节点</span>
+		p <span class="token operator">=</span> p<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span>
+		j<span class="token operator">++</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span>p <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// i的值不合法</span>
+		<span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span> 
+	LNode <span class="token operator">*</span>s <span class="token operator">=</span> <span class="token punctuation">(</span>LNode<span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>LNode<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	s<span class="token operator">-&gt;</span>data <span class="token operator">=</span> e<span class="token punctuation">;</span>
+	s<span class="token operator">-&gt;</span>next <span class="token operator">=</span> p<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span>
+	p<span class="token operator">-&gt;</span>next <span class="token operator">=</span> s<span class="token punctuation">;</span> <span class="token comment">// 将节点s连到p之后</span>
+	<span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 初始化单链表</span>
+<span class="token keyword">bool</span> <span class="token function">Init</span><span class="token punctuation">(</span>LinkList <span class="token operator">&amp;</span>L<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	L <span class="token operator">=</span> <span class="token punctuation">(</span>LNode<span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>LNode<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span>L<span class="token operator">==</span><span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">&quot;内存不足，分配失败！&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	L<span class="token operator">-&gt;</span>next <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span> <span class="token comment">// 后面没有节点了</span>
+	<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">&quot;分配成功！&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+	LinkList L<span class="token punctuation">;</span> <span class="token comment">// 声明一个单链表的指针</span>
+	<span class="token function">Init</span><span class="token punctuation">(</span>L<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 初始化单链表</span>
+	<span class="token function">ListInsert</span><span class="token punctuation">(</span>L<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>平均时间复杂度为O(n)</p> <h3 id="按位序插入-不带头节点">按位序插入（不带头节点）</h3> <div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdlib.h&gt;</span></span>
+
+<span class="token keyword">typedef</span> <span class="token keyword">struct</span> <span class="token class-name">LNode</span> <span class="token punctuation">{</span>
+	<span class="token keyword">int</span> data<span class="token punctuation">;</span>
+	<span class="token keyword">struct</span> <span class="token class-name">LNode</span><span class="token operator">*</span>next<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>LNode<span class="token punctuation">,</span><span class="token operator">*</span>LinkList<span class="token punctuation">;</span>
+
+<span class="token keyword">bool</span> <span class="token function">ListInsert</span><span class="token punctuation">(</span>LinkList <span class="token operator">&amp;</span>L<span class="token punctuation">,</span><span class="token keyword">int</span> i<span class="token punctuation">,</span><span class="token keyword">int</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span>i<span class="token operator">&lt;</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 插入第1个节点的操作和其他的节点操作不同</span>
+		<span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		LNode <span class="token operator">*</span>s <span class="token operator">=</span> <span class="token punctuation">(</span>LNode<span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>LNode<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 分配一块内存空间来创建节点</span>
+		s<span class="token operator">-&gt;</span>data <span class="token operator">=</span> e<span class="token punctuation">;</span>    <span class="token comment">//将插入的数据赋值到内存空间中</span>
+		s<span class="token operator">-&gt;</span>next <span class="token operator">=</span> L<span class="token punctuation">;</span>    <span class="token comment">//将新建的内存指针指向头节点</span>
+		L <span class="token operator">=</span> s<span class="token punctuation">;</span>			<span class="token comment">// 头指针指向新节点</span>
+		<span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	LNode <span class="token operator">*</span>p<span class="token punctuation">;</span>			<span class="token comment">// 指针p指向当前扫描的节点</span>
+	<span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>			<span class="token comment">// 当前p指向的是第几个节点</span>
+	p <span class="token operator">=</span> L<span class="token punctuation">;</span>				<span class="token comment">// p指向第1个节点（注意：不是头节点）</span>
+	<span class="token keyword">while</span> <span class="token punctuation">(</span>p <span class="token operator">!=</span> <span class="token constant">NULL</span> <span class="token operator">&amp;&amp;</span> j <span class="token operator">&lt;</span> i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		p <span class="token operator">=</span> p<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span>
+		j<span class="token operator">++</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span>p<span class="token operator">==</span><span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	LNode <span class="token operator">*</span>s <span class="token operator">=</span> <span class="token punctuation">(</span>LNode<span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>LNode<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	s<span class="token operator">-&gt;</span>data <span class="token operator">=</span> e<span class="token punctuation">;</span>
+	s<span class="token operator">-&gt;</span>next <span class="token operator">=</span> p<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span>
+	p<span class="token operator">-&gt;</span>next <span class="token operator">=</span> s<span class="token punctuation">;</span>
+	<span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 初始化单链表</span>
+<span class="token keyword">bool</span> <span class="token function">Init</span><span class="token punctuation">(</span>LinkList <span class="token operator">&amp;</span>L<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	L <span class="token operator">=</span> <span class="token punctuation">(</span>LNode<span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>LNode<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span>L<span class="token operator">==</span><span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">&quot;内存不足，分配失败！&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	L<span class="token operator">-&gt;</span>next <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span> <span class="token comment">// 后面没有节点了</span>
+	<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">&quot;分配成功！&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+	LinkList L<span class="token punctuation">;</span> <span class="token comment">// 声明一个单链表的指针</span>
+	<span class="token function">Init</span><span class="token punctuation">(</span>L<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 初始化单链表</span>
+	<span class="token function">ListInsert</span><span class="token punctuation">(</span>L<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="custom-block tip"><p class="title"></p><p>如果不带头节点，则插入、删除第1个元素时，需要更改头指针L</p></div><h3 id="指定节点的后插操作">指定节点的后插操作</h3> <p><img src="https://image.icelo.cn/image-20210209173741960.png" alt="image-20210209173741960"></p> <div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token keyword">typedef</span> <span class="token keyword">struct</span> <span class="token class-name">LNode</span><span class="token punctuation">{</span>
+    <span class="token keyword">int</span> data<span class="token punctuation">;</span>
+    <span class="token keyword">struct</span> <span class="token class-name">LNode</span> <span class="token operator">*</span>next<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 后插操作：在p节点之后插入元素e</span>
+<span class="token keyword">bool</span> <span class="token function">InsertNextNode</span><span class="token punctuation">(</span>LNode <span class="token operator">*</span>p<span class="token punctuation">,</span><span class="token keyword">int</span> e<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>p<span class="token operator">==</span><span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token boolean">false</span>
+    <span class="token punctuation">}</span>
+    LNode <span class="token operator">*</span>s<span class="token operator">=</span><span class="token punctuation">(</span>LNode<span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>LNode<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>s<span class="token operator">==</span><span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token comment">// 分配内存失败！</span>
+        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    s<span class="token operator">-&gt;</span>data <span class="token operator">=</span> e<span class="token punctuation">;</span>  <span class="token comment">// 用节点s保存数据元素</span>
+    s<span class="token operator">-&gt;</span>next <span class="token operator">=</span> p<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span>
+    p<span class="token operator">-&gt;</span>next <span class="token operator">=</span>s<span class="token punctuation">;</span>   <span class="token comment">// 将节点s连到p之后</span>
+    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token keyword">typedef</span> <span class="token keyword">struct</span> <span class="token class-name">LNode</span> <span class="token punctuation">{</span>
+	<span class="token keyword">int</span> data<span class="token punctuation">;</span>
+	<span class="token keyword">struct</span> <span class="token class-name">LNode</span><span class="token operator">*</span>next<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>LNode<span class="token punctuation">,</span><span class="token operator">*</span>LinkList<span class="token punctuation">;</span>
+
+<span class="token comment">// 在第i个位置插入元素e(带头节点)</span>
+<span class="token keyword">bool</span> <span class="token function">ListInsert</span><span class="token punctuation">(</span>LinkList <span class="token operator">&amp;</span>L<span class="token punctuation">,</span> <span class="token keyword">int</span> i<span class="token punctuation">,</span> <span class="token keyword">int</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">&lt;</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	LNode <span class="token operator">*</span>p<span class="token punctuation">;</span>	<span class="token comment">// 指针p指向当前扫描到的节点</span>
+	<span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>	<span class="token comment">// 当前p指向的是第几个节点</span>
+	p <span class="token operator">=</span> L<span class="token punctuation">;</span>		<span class="token comment">// 指向头结点，头结点时第0个节点(不保存数据)</span>
+	<span class="token keyword">while</span> <span class="token punctuation">(</span>p <span class="token operator">!=</span> <span class="token constant">NULL</span><span class="token operator">&amp;&amp;</span>j<span class="token operator">&lt;</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		p <span class="token operator">=</span> p<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span>
+		j<span class="token operator">++</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span>p<span class="token operator">==</span><span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>  <span class="token comment">// 输入的i值不合法</span>
+		<span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token comment">/*LNode *s = (LNode*)malloc(sizeof(LNode));
+	s-&gt;data = e;
+	s-&gt;next = p-&gt;next;
+	p-&gt;next = s;
+	return true;*/</span>
+
+	<span class="token comment">// 以上注释代码可以用</span>
+	<span class="token keyword">return</span> <span class="token function">InsertNextNode</span><span class="token punctuation">(</span>p<span class="token punctuation">,</span> e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="指定节点的前插操作">指定节点的前插操作</h3> <p><code>bool InserPriorNode(LNode *p,ELemType e)</code></p> <p><img src="https://image.icelo.cn/image-20210210122147731.png" alt="image-20210210122147731"></p> <p>上面那种情况如何能够找到p节点的前驱节点呢？</p> <p>所以需要传入一个==头指针==，如下：</p> <p><code>bool InsertPriorNode (LinkList L,LNode *p,ElemType e)</code></p> <p><img src="https://image.icelo.cn/image-20210210122547650.png" alt="image-20210210122547650"></p> <div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token keyword">typedef</span> <span class="token keyword">struct</span> <span class="token class-name">LNode</span> <span class="token punctuation">{</span>
+	<span class="token keyword">int</span> data<span class="token punctuation">;</span>
+	<span class="token keyword">struct</span> <span class="token class-name">LNode</span> <span class="token operator">*</span>next<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>LNode<span class="token punctuation">,</span><span class="token operator">*</span>LinkList<span class="token punctuation">;</span>
+
+<span class="token comment">// 前插操作：在P结点之前插入元素 e</span>
+<span class="token keyword">bool</span> <span class="token function">InsertPriorNode</span><span class="token punctuation">(</span>LNode <span class="token operator">*</span>p<span class="token punctuation">,</span> <span class="token keyword">int</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span>p<span class="token operator">==</span><span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	LNode <span class="token operator">*</span>s <span class="token operator">=</span> <span class="token punctuation">(</span>LNode <span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>LNode<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span>s <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 内存分配失败</span>
+		<span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	s<span class="token operator">-&gt;</span>data <span class="token operator">=</span> e<span class="token punctuation">;</span>
+	p<span class="token operator">-&gt;</span>next <span class="token operator">=</span> s<span class="token punctuation">;</span>		<span class="token comment">//	新节点s连到p之后</span>
+	s<span class="token operator">-&gt;</span>data <span class="token operator">=</span> p<span class="token operator">-&gt;</span>data<span class="token punctuation">;</span>  <span class="token comment">// 将p中元素复制到s中</span>
+	p<span class="token operator">-&gt;</span>data <span class="token operator">=</span> e<span class="token punctuation">;</span>		<span class="token comment">// p中元素覆盖为e	</span>
+	<span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+</code></pre></div><p><img src="https://image.icelo.cn/image-20210210123645334.png#mirages-width=1154&amp;mirages-height=290&amp;mirages-cdn-type=1" alt="image-20210210123645334">在要插入之前的元素中的数据和指针重新指向，如上图所示；</p> <h2 id="单链表的删除">单链表的删除</h2> <h3 id="按位序删除-带头节点">按位序删除（带头节点）</h3> <p><code>ListDelete(&amp;L,&amp;e)</code>：删除操作。删除表L中第i个位置的元素，并用e返回删除元素的值
+找到第i-1个节点，将其指针指向第i+1个节点</p> <div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdlib.h&gt;</span></span>
+
+<span class="token keyword">typedef</span> <span class="token keyword">struct</span> <span class="token class-name">LNode</span> <span class="token punctuation">{</span>
+	<span class="token keyword">int</span> data<span class="token punctuation">;</span>
+	<span class="token keyword">struct</span> <span class="token class-name">LNode</span> <span class="token operator">*</span>next<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>LNode<span class="token punctuation">,</span><span class="token operator">*</span>LinkList<span class="token punctuation">;</span>
+
+<span class="token comment">// 按位序删除（带头节点）</span>
+<span class="token keyword">bool</span> <span class="token function">ListDelete</span><span class="token punctuation">(</span>LinkList <span class="token operator">&amp;</span>L<span class="token punctuation">,</span> <span class="token keyword">int</span> i<span class="token punctuation">,</span> <span class="token keyword">int</span> <span class="token operator">&amp;</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span>i<span class="token operator">&lt;</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	LNode <span class="token operator">*</span>p<span class="token punctuation">;</span>	<span class="token comment">// 指针p指向当前扫描的节点</span>
+	<span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>  <span class="token comment">// 指针p指向的是第几个节点</span>
+	p <span class="token operator">=</span> L<span class="token punctuation">;</span>		<span class="token comment">// 指向头节点，头节点是第0个节点（不保存数据）</span>
+	<span class="token keyword">while</span> <span class="token punctuation">(</span>p<span class="token operator">!=</span><span class="token constant">NULL</span><span class="token operator">&amp;&amp;</span>j<span class="token operator">&lt;</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>	<span class="token comment">// 循环找到第 i-1个节点</span>
+		p <span class="token operator">=</span> p<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span>
+		j<span class="token operator">++</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span>p<span class="token operator">==</span><span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// i值不合法</span>
+		<span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span>p<span class="token operator">-&gt;</span>next<span class="token operator">==</span><span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>	<span class="token comment">// 第i-1个节点之后已无其他节点</span>
+		<span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	LNode <span class="token operator">*</span>q <span class="token operator">=</span> p<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span>		<span class="token comment">// 令q指向被删除节点</span>
+	e <span class="token operator">=</span> q<span class="token operator">-&gt;</span>data<span class="token punctuation">;</span>			<span class="token comment">// 用e返回元素的值</span>
+	p<span class="token operator">-&gt;</span>next <span class="token operator">=</span> q<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span>		<span class="token comment">// 将*q节点从链中“断开”</span>
+	<span class="token function">free</span><span class="token punctuation">(</span>q<span class="token punctuation">)</span><span class="token punctuation">;</span>				<span class="token comment">// 释放节点的存储空间</span>
+	<span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>			<span class="token comment">// 删除成功</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="custom-block tip"><p class="title"></p><p><strong>时间复杂度</strong>
+最坏、平均的时间复杂度 = O(n)
+最好时间复杂度 = O(1)</p></div><h3 id="指定节点删除">指定节点删除</h3> <p><code>bool DeleteNode(LNode *p)</code></p> <p><img src="https://image.icelo.cn/image-20210210125945525.png" alt="image-20210210125945525"></p> <div class="custom-block tip"><p class="title"></p><p>删除节点p：需要修改前驱节点的next指针</p> <ul><li>方法1：传入头指针，循环寻找p的前驱节点</li> <li>方法2：偷天换日</li></ul></div><div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token keyword">bool</span> <span class="token function">DeleteNode</span><span class="token punctuation">(</span>LNode <span class="token operator">*</span>p<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>p<span class="token operator">==</span><span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    LNode <span class="token operator">*</span>q<span class="token operator">=</span>p<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span> 		<span class="token comment">// 令q指向*p的后继节点</span>
+    p<span class="token operator">-&gt;</span>data<span class="token operator">=</span>p<span class="token operator">-&gt;</span>next<span class="token operator">-&gt;</span>data<span class="token punctuation">;</span> 	<span class="token comment">// 和后继节点交换数据域</span>
+    p<span class="token operator">-&gt;</span>next<span class="token operator">=</span>q<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span>		<span class="token comment">// 将*q节点从链中&quot;断开&quot;</span>
+    <span class="token function">free</span><span class="token punctuation">(</span>q<span class="token punctuation">)</span><span class="token punctuation">;</span>				<span class="token comment">// 释放后继节点的存储空间</span>
+    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="单链表的查找">单链表的查找</h2> <h3 id="按位查找">按位查找</h3> <div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token comment">// 按位查找，返回第i分元素（带头节点）</span>
+LNode <span class="token operator">*</span> <span class="token function">GetElemt</span><span class="token punctuation">(</span>LinkList L<span class="token punctuation">,</span><span class="token keyword">int</span> i<span class="token punctuation">)</span><span class="token punctuation">{</span>
+	<span class="token keyword">if</span><span class="token punctuation">(</span>i<span class="token operator">&lt;</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+		<span class="token keyword">return</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	LNode <span class="token operator">*</span>p<span class="token punctuation">;</span> 		<span class="token comment">// 指针p指向当前扫描到的节点</span>
+	<span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> 		<span class="token comment">// 指向p指向的是第几个节点</span>
+	p <span class="token operator">=</span> L<span class="token punctuation">;</span>			<span class="token comment">// 指向头节点，头结点时第0个节点（不存数据）</span>
+	<span class="token keyword">while</span><span class="token punctuation">(</span>p<span class="token operator">!=</span><span class="token constant">NULL</span><span class="token operator">&amp;&amp;</span>j<span class="token operator">&lt;</span>i<span class="token punctuation">)</span><span class="token punctuation">{</span>
+		p<span class="token operator">=</span>p<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span>
+		j<span class="token operator">++</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">return</span> p<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p><img src="https://image.icelo.cn/image-20210310172418474.png" alt="image-20210310172418474"></p> <h3 id="按值查找">按值查找</h3> <div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token comment">// 按值查找，找到数据与 == e 的节点</span>
+LNode<span class="token operator">*</span> <span class="token function">LocateELem</span><span class="token punctuation">(</span>LinkList L<span class="token punctuation">,</span>ElemType e<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    LNode <span class="token operator">*</span>p <span class="token operator">=</span> L<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span>
+    <span class="token comment">// 从第1个节点开始查找数据域中e的节点</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>p<span class="token operator">!=</span><span class="token constant">NULL</span><span class="token operator">&amp;&amp;</span>p<span class="token operator">-&gt;</span>data<span class="token operator">!=</span>e<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        p <span class="token operator">=</span> p<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> p<span class="token punctuation">;</span>		<span class="token comment">// 找到后返回该节点指针,否则返回NULL</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="单链表的长度">单链表的长度</h2> <div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token comment">// 求表的长度</span>
+<span class="token keyword">int</span> <span class="token function">length</span><span class="token punctuation">(</span>LinkList L<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">int</span> len  <span class="token operator">=</span><span class="token number">0</span> <span class="token punctuation">;</span> <span class="token comment">// 统计表长</span>
+    LNode <span class="token operator">*</span>p <span class="token operator">=</span> L<span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>p<span class="token operator">-&gt;</span>next <span class="token operator">!=</span><span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        p <span class="token operator">=</span> p <span class="token operator">-&gt;</span>next<span class="token punctuation">;</span>
+        len<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> len<span class="token punctuation">;</span>
+       
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="单链表的建立">单链表的建立</h2> <p>如果给你很多元素（ElemType），要把它们存在一个单链表里边，怎么操作？</p> <ul><li>Step1：初始化一个单链表</li> <li>Step2：每次取一个数据元素，插入到表尾/表头</li></ul> <h3 id="尾插法建立单链表">尾插法建立单链表</h3> <div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token keyword">typedef</span> <span class="token keyword">struct</span> <span class="token class-name">LNode</span><span class="token punctuation">{</span>	<span class="token comment">// 定义 单链表节点类型</span>
+    ElemType data<span class="token punctuation">;</span>		<span class="token comment">// 每一个节点存放一个数据元素</span>
+    <span class="token keyword">struct</span> <span class="token class-name">LNode</span> <span class="token operator">*</span>next<span class="token punctuation">;</span> <span class="token comment">// 指针指向下一个节点</span>
+<span class="token punctuation">}</span>LNode<span class="token punctuation">,</span><span class="token operator">*</span>LinkList<span class="token punctuation">;</span>
+
+<span class="token comment">// 初始化一个单链表（带头节点）</span>
+<span class="token keyword">bool</span> <span class="token function">InitList</span><span class="token punctuation">(</span>LinkList <span class="token operator">&amp;</span>L<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    L <span class="token operator">=</span> <span class="token punctuation">(</span>LNode <span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>LNode<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//	分配一个头节点</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>L<span class="token operator">==</span><span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>	<span class="token comment">// 内存不足分配失败</span>
+    <span class="token punctuation">}</span>
+    L<span class="token operator">-&gt;</span>next <span class="token operator">=</span>NULl<span class="token punctuation">;</span>		<span class="token comment">// 头节点之后还没有节点</span>
+    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    LinkList L<span class="token punctuation">;</span> 	<span class="token comment">// 声明一个指向单链表的指针</span>
+    <span class="token comment">// 初始化一个空表</span>
+    <span class="token function">InitList</span><span class="token punctuation">(</span>L<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+   <span class="token comment">// 后续操作</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>设置length 记录链表的长度</p> <div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token keyword">while</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment">// 每次取一个数据元素e;</span>
+    <span class="token function">ListInsert</span><span class="token punctuation">(</span>L<span class="token punctuation">,</span>length<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 插到尾部</span>
+    length<span class="token operator">++</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>具体代码如下：</p> <div class="language-cpp extra-class"><pre class="language-cpp"><code>LinkList <span class="token function">List_TailInsert</span><span class="token punctuation">(</span>LinkList <span class="token operator">&amp;</span>L<span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token comment">// 正向建立单链表</span>
+    <span class="token keyword">int</span> x<span class="token punctuation">;</span>							   <span class="token comment">// 设ElemType为整形</span>
+    L <span class="token operator">=</span><span class="token punctuation">(</span>LinkList<span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>LNode<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 建立头节点</span>
+    LNode <span class="token operator">*</span>s<span class="token punctuation">,</span><span class="token operator">*</span>r<span class="token operator">=</span>L<span class="token punctuation">;</span>						<span class="token comment">// r为表尾指针</span>
+    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">&quot;%d&quot;</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>						<span class="token comment">// 输入节点的值</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>X<span class="token operator">!</span><span class="token number">9999</span><span class="token punctuation">)</span><span class="token punctuation">{</span>						<span class="token comment">// 输入9999表示结束</span>
+        s<span class="token operator">=</span><span class="token punctuation">(</span>LNode<span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>LNode<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        s<span class="token operator">-&gt;</span>data<span class="token operator">=</span>x<span class="token punctuation">;</span>
+        r<span class="token operator">-&gt;</span>next<span class="token operator">=</span>s<span class="token punctuation">;</span>
+        r <span class="token operator">=</span> s<span class="token punctuation">;</span>							<span class="token comment">//  r指向新的表尾点</span>
+        <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">&quot;%d&quot;</span><span class="token operator">&amp;</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    r<span class="token operator">-&gt;</span>next <span class="token operator">=</span><span class="token constant">NULL</span><span class="token punctuation">;</span>						<span class="token comment">// 表尾节点置空</span>
+    <span class="token keyword">return</span> L<span class="token punctuation">;</span>
+    
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="头插法建立单链表">头插法建立单链表</h3> <div class="language-cpp extra-class"><pre class="language-cpp"><code>LinkList <span class="token function">List_HeadInsert</span><span class="token punctuation">(</span>LinkList <span class="token operator">&amp;</span>L<span class="token punctuation">)</span><span class="token punctuation">{</span>	<span class="token comment">// 逆向建立单链表</span>
+    LNode <span class="token operator">*</span>s<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> x<span class="token punctuation">;</span>
+    L<span class="token operator">=</span><span class="token punctuation">(</span>LinkList<span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>LNode<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>	<span class="token comment">// 创建头节点</span>
+    L<span class="token operator">-&gt;</span>next <span class="token operator">=</span><span class="token constant">NULL</span><span class="token punctuation">;</span>						<span class="token comment">// 初始为空表</span>
+    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">&quot;%d&quot;</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>						<span class="token comment">// 输出插入的元素</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>x<span class="token operator">!</span><span class="token number">9999</span><span class="token punctuation">)</span><span class="token punctuation">{</span>						<span class="token comment">// 当输入9999表示结束</span>
+        <span class="token function">s</span><span class="token punctuation">(</span>LNode <span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>LNode<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 创建新节点</span>
+        s<span class="token operator">-&gt;</span>data<span class="token operator">=</span>x<span class="token punctuation">;</span>
+        s<span class="token operator">-&gt;</span>next<span class="token operator">=</span>L<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span>
+        L<span class="token operator">-&gt;</span>next<span class="token operator">=</span>s<span class="token punctuation">;</span>						<span class="token comment">// 将新节点插入到表中，L为头指针</span>
+        <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">&quot;%d&quot;</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>x<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> L
+<span class="token punctuation">}</span>
+</code></pre></div><div class="custom-block tip"><p class="title"></p><p>头插法可以用作单链表的逆置</p></div></div></section> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev"><a href="/data-structure/顺序表.html" class="prev">
+            数据结构 - 顺序表
+          </a></span> <span class="next"><a href="/data-structure/双链表.html">
+            数据结构 - 双链表
+          </a></span></p></div> <div class="comments-wrapper"><!----></div> <ul class="side-bar sub-sidebar-wrapper" style="width:12rem;" data-v-70334359><li class="level-2" data-v-70334359><a href="/data-structure/单链表.html#单链表定义" class="sidebar-link reco-side-单链表定义" data-v-70334359>单链表定义</a></li><li class="level-3" data-v-70334359><a href="/data-structure/单链表.html#定义单链表" class="sidebar-link reco-side-定义单链表" data-v-70334359>定义单链表</a></li><li class="level-2" data-v-70334359><a href="/data-structure/单链表.html#单链表的插入" class="sidebar-link reco-side-单链表的插入" data-v-70334359>单链表的插入</a></li><li class="level-3" data-v-70334359><a href="/data-structure/单链表.html#按位序插入-带头节点" class="sidebar-link reco-side-按位序插入-带头节点" data-v-70334359>按位序插入（带头节点）</a></li><li class="level-3" data-v-70334359><a href="/data-structure/单链表.html#按位序插入-不带头节点" class="sidebar-link reco-side-按位序插入-不带头节点" data-v-70334359>按位序插入（不带头节点）</a></li><li class="level-3" data-v-70334359><a href="/data-structure/单链表.html#指定节点的后插操作" class="sidebar-link reco-side-指定节点的后插操作" data-v-70334359>指定节点的后插操作</a></li><li class="level-3" data-v-70334359><a href="/data-structure/单链表.html#指定节点的前插操作" class="sidebar-link reco-side-指定节点的前插操作" data-v-70334359>指定节点的前插操作</a></li><li class="level-2" data-v-70334359><a href="/data-structure/单链表.html#单链表的删除" class="sidebar-link reco-side-单链表的删除" data-v-70334359>单链表的删除</a></li><li class="level-3" data-v-70334359><a href="/data-structure/单链表.html#按位序删除-带头节点" class="sidebar-link reco-side-按位序删除-带头节点" data-v-70334359>按位序删除（带头节点）</a></li><li class="level-3" data-v-70334359><a href="/data-structure/单链表.html#指定节点删除" class="sidebar-link reco-side-指定节点删除" data-v-70334359>指定节点删除</a></li><li class="level-2" data-v-70334359><a href="/data-structure/单链表.html#单链表的查找" class="sidebar-link reco-side-单链表的查找" data-v-70334359>单链表的查找</a></li><li class="level-3" data-v-70334359><a href="/data-structure/单链表.html#按位查找" class="sidebar-link reco-side-按位查找" data-v-70334359>按位查找</a></li><li class="level-3" data-v-70334359><a href="/data-structure/单链表.html#按值查找" class="sidebar-link reco-side-按值查找" data-v-70334359>按值查找</a></li><li class="level-2" data-v-70334359><a href="/data-structure/单链表.html#单链表的长度" class="sidebar-link reco-side-单链表的长度" data-v-70334359>单链表的长度</a></li><li class="level-2" data-v-70334359><a href="/data-structure/单链表.html#单链表的建立" class="sidebar-link reco-side-单链表的建立" data-v-70334359>单链表的建立</a></li><li class="level-3" data-v-70334359><a href="/data-structure/单链表.html#尾插法建立单链表" class="sidebar-link reco-side-尾插法建立单链表" data-v-70334359>尾插法建立单链表</a></li><li class="level-3" data-v-70334359><a href="/data-structure/单链表.html#头插法建立单链表" class="sidebar-link reco-side-头插法建立单链表" data-v-70334359>头插法建立单链表</a></li></ul></main> <!----></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div><APlayer audio="" fixed="true" mini="true" theme="#f9bcdd" loop="loop" order="random" preload="auto" volume="0.1" mutex="true" lrc-type="0" list-folded="true" list-max-height="250" storage-name="vuepress-plugin-meting" id="aplayer-fixed"></APlayer></div></div>
+    <script src="/assets/js/app.66e3039c.js" defer></script><script src="/assets/js/3.334ae027.js" defer></script><script src="/assets/js/1.eb54ca9b.js" defer></script><script src="/assets/js/14.d9a65f5a.js" defer></script>
+  </body>
+</html>
