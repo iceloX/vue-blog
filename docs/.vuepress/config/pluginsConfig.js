@@ -4,6 +4,18 @@ module.exports = [
   ],
   ['rpurl'],
   [
+    'vuepress-plugin-graypage', {
+      // 是否开启控制台日志打印(default: false)
+      log: true,
+      // 月+日(哀悼日生效日期)
+      mournDay: ['4-4','12-13','9-18'],
+      // 年+月+日(哀悼日生效日期)
+      date: ['2021-12-13'],
+      // 特殊的日期(例如：清明节等...建议使用默认即可)
+      special: ['qinMing']
+    }
+  ],
+  [
     "vuepress-plugin-auto-sidebar",
     {
       collapse: {
