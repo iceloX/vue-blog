@@ -1,0 +1,25 @@
+{
+  "name": "vuepress-starter",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^1.8.2",
+    "vuepress-plugin-auto-sidebar": "^2.3.2"
+  },
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  },
+  "dependencies": {
+    "@vuepress-reco/vuepress-plugin-comments": "^1.6.0",
+    "@vuepress/plugin-last-updated": "^1.8.2",
+    "markdown-it-katex": "^2.0.3",
+    "npm": "^7.20.6",
+    "vuepress-plugin-graypage": "^0.1.2",
+    "vuepress-plugin-meting": "^0.3.0",
+    "vuepress-plugin-permalink-pinyin": "^1.0.0",
+    "vuepress-plugin-rpurl": "boboidream/vuepress-plugin-rpurl",
+    "vuepress-theme-reco": "^1.6.6"
+  }
+}
