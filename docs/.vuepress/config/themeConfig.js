@@ -16,4 +16,7 @@ module.exports = {
     logo: "/avatar.png",
     type: "blog",
     codeTheme: 'tomorrow',
+    // 备案号
+    record: '皖ICP备19023356号-3',
+    recordLink: 'https://beian.miit.gov.cn/',
 }
