@@ -75,8 +75,8 @@ module.exports = [
   {
     title:"XIAOMING'S BLOG",
     desc:"",
-    logo: "https://le360.cc/usr/uploads/logo.jpg",
-    link: "https://le360.cc/"
+    logo: "https://pic.vimin.cc/logo.png",
+    link: "https://vimin.cc"
   },
   {
     title:"霂森西",
