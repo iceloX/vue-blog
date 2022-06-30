@@ -1,22 +1,23 @@
 module.exports = [
-    {text: 'Home',link: '/'},
+    {text: 'Home',link: '/',icon: 'reco-home'},
     {text: 'TimeLine', link: '/timeline/', icon: 'reco-date' },
-    {text: 'About', link: '/about/', icon: 'reco-api' },
+    {text: 'About', link: '/about/', icon: 'reco-account' },
     {
         text: 'Tools',
+        icon: 'reco-api',
         items: [{
                 text: '系统镜像',
                 items: [{
                         text: 'Windows',
-                        link: 'https://msdn.itellyou.cn/'
+                        link: 'https://msdn.itellyou.cn/',
                     },
                     {
                         text: 'Centos',
-                        link: 'https://www.centos.org/'
+                        link: 'https://www.centos.org/',
                     },
                     {
                         text: 'Ubuntu',
-                        link: 'https://ubuntu.com/download'
+                        link: 'https://ubuntu.com/download',
                     },
                 ]
             },
@@ -24,7 +25,8 @@ module.exports = [
                 text: '云服务',
                 items: [{
                         text: '阿里云',
-                        link: 'https://www.aliyun.com//'
+                        link: 'https://www.aliyun.com/',
+                        icon: 'fa-aliyun'
                     },
                     {
                         text: '腾讯云',
@@ -68,8 +70,8 @@ module.exports = [
         ]
     },
     {
-        text: 'Blog',
-        link: 'https://icelo.cn',
-        icon: 'reco-other'
+        text: 'GitHub',
+        link: 'https://github.com/iceloX',
+        icon: 'reco-github'
     },
 ]
