@@ -38,8 +38,8 @@ module.exports = [
   },
   {
     title: "Quinn Tian's Blog",
-    desc:"",
-    logo: "https://quinntian.com/avatar",
+    desc:"一个专注于学习、记录和分享的网站",
+    logo: "https://cdn.jsdelivr.net/gh/QuinnTian/imgchr/blog-imgs/avatar.jpg",
     link: "https://quinntian.com",
   },
   {
@@ -48,12 +48,13 @@ module.exports = [
     logo: "https://iymark.com/wp-content/uploads/2020/09/iy-favicon.png",
     link: "https://iymark.com",
   },
-  {
-    title: "PiggerChan",
-    desc:"",
-    logo: "https://www.piggerchan.com/favicon.ico",
-    link: "https://www.piggerchan.com",
-  } ,
+  // 网站死链
+  // {
+  //   title: "PiggerChan",
+  //   desc:"",
+  //   logo: "https://www.piggerchan.com/favicon.ico",
+  //   link: "https://www.piggerchan.com",
+  // } ,
   {
     title: "月上陌阡",
     desc:"",
