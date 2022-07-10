@@ -9,5 +9,7 @@ module.exports={
       },
       socialLinks: [     // 信息栏展示社交信息
         { icon: 'reco-github', link: 'https://github.com/icelox' },
+        { icon: 'reco-twitter', link: 'https://twitter.com/icelo_cn' },
+        { icon: 'reco-v2ex', link: 'https://v2ex.com/member/icelo' },
       ]
 }

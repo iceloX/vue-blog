@@ -64,7 +64,7 @@ module.exports = [
   {
     title: "长野 の BLOG",
     desc:"",
-    logo: "https://image.icelo.cn/y1.jpg",
+    logo: "https://cloudreve123-1255663050.cos.ap-beijing.myqcloud.com/2020/01/28/1580194472.jpg",
     link: "https://rabithua.club"
   },
   {
@@ -96,5 +96,12 @@ module.exports = [
     desc:"",
     logo:"https://yunfanch.com/favicon.png",
     link:"https://yunfanch.com/"
+},
+{ 
+  title:"百度网页",
+  desc:"",
+  logo:"https://www.baidu.com/favicon.ico",
+  link:"https://www.baidu.com/"
 }
+
 ];
