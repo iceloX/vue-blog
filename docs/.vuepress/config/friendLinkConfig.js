@@ -7,10 +7,10 @@ module.exports = [
   },
   {
 
-    title: "点儿博客",
-    desc:"",
-    logo: "https://dianr.cn/img/tx.jpg",
-    link: "https://dianr.cn/",
+    title: "星途",
+    logo: "https://xingtu.org/img/X.png",
+    desc: "记录美好生活，探索未知领域",
+    link: "https://xingtu.org",
   },
   {
     title: "Rat's Blog",
@@ -94,8 +94,8 @@ module.exports = [
   { 
     title:"云帆沧海",
     desc:"",
-    logo:"https://yunfanch.com/favicon.png",
-    link:"https://yunfanch.com/"
+    logo:"https://yf-ch.com/img/favicon.png",
+    link:"https://yf-ch.com"
 },
 { 
   title:"百度网页",
