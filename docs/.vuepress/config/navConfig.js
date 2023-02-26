@@ -70,8 +70,8 @@ module.exports = [
         ]
     },
     {
-        text: 'GitHub',
-        link: 'https://github.com/iceloX',
-        icon: 'reco-github'
+        text: '在线网盘',
+        link: 'https://pan.icelo.cn',
+        icon: 'reco-other'
     },
 ]
